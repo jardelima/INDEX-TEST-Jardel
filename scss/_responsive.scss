@@ -1,0 +1,24 @@
+$extra-large-device: 1200px;
+$large-device: 992px;
+$medium-device: 576px;
+$small-device: 576px;
+
+@mixin responsive($device) {
+  @if $device == extra-large-device {
+    @media screen and (min-width: $extra-large-device) {
+      @content;
+    }
+  } @else if $device == large-device {
+    @media screen and (min-width: $large-device) and (max-width: $extra-large-device - 1) {
+      @content;
+    }
+  } @else if $device == medium-device {
+    @media screen and (min-width: $medium-device) and (max-width: $large-device - 1)  {
+      @content;
+    }
+  } @else if $device == small-device {
+    @media screen and (max-width: $small-device - 1) {
+      @content;
+    }
+  }
+}
